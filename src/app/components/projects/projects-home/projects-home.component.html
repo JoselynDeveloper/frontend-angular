@@ -1,0 +1,82 @@
+<div class="container">
+	<h2 class="mb-4">{{title}}</h2>
+
+	<div class="row " >
+		<div class="col-md-4 mb-4" *ngFor="let project of projects; let indice = index">
+			<div class="card" style="width: 18rem;">
+				<a [routerLink]="['/proyecto', project.name, project._id]">
+					<img class="card-img-top" src="{{url+'get-image/'+project.image}}"  alt="Card image cap" >
+				</a>
+				
+				<div class="card-body">
+					<!-- OPCIONES -->
+					<div class="btn-group dropleft d-block">
+						<div class="menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+							<i class="fas fa-ellipsis-v float-right menu-icon"></i>
+						</div>
+
+						<div class="dropdown-menu">
+							<a class="dropdown-item text-warning" data-toggle="modal" data-target="#exampleModalCenter"(click)="setTitle(true, project.name, project._id)">Editar
+							</a>
+							<a class="dropdown-item text-danger" data-toggle="modal" data-target="#exampleModalCenter" (click)="setTitle(false, project.name, project._id, indice)">Eliminar
+							</a>
+						</div>
+					</div>
+
+					<h5 class="card-title">{{project.name}}</h5>
+					<p class="card-text">{{project.description}}</p>
+					<a [routerLink]="['/proyecto', project.name, project._id]" class="btn btn-primary">Mas detalles</a>
+				</div>
+			</div>
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalCenterTitle">
+								<span *ngIf="modalTitle == 'Editar'">
+									<span class="text-warning">
+										{{modalTitle}}
+									</span>
+									{{projectName}}
+								</span>
+								<span *ngIf="modalTitle == 'Eliminar'">
+									<span class="text-danger">
+										{{modalTitle}}
+									</span>
+									{{projectName}}
+								</span>								
+							</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<span *ngIf="modalTitle == 'Eliminar'; else eledit" class="text-danger" (click)="getDeleteProject()" data-dismiss="modal">
+								{{modalMessage}}
+							</span>	
+							<ng-template #eledit>
+								{{modalMessage}}
+							</ng-template>				
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cerrar</button>
+
+							<button type="button" data-dismiss="modal" class="btn btn-sm btn-primary" (click)="getDeleteProject(project._id)" *ngIf="modalTitle == 'Eliminar'; else siedit">
+								{{modalAcepto}} 
+							</button>
+							<ng-template #siedit>
+								<a type="button" data-dismiss="modal" class="btn btn-sm btn-primary text-white" [routerLink]="['/proyecto', projectName,'actualizar', projectId]">
+									{{modalAcepto}} 
+								</a>
+							</ng-template>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div><!-- Fin del for -->
+	</div>	
+	
+</div>	

@@ -1,0 +1,78 @@
+<div class="container">
+	<h2 class="mb-4">{{title}}</h2>
+
+	<div class="alert alert-success" role="alert" *ngIf="status == 'success'">
+		El proyecto se ha actualizado correctamente, puedes <a [routerLink]="['/proyecto', save_project.name, save_project._id]">verlo aqui</a>
+	</div>
+
+	<div class="alert alert-danger" role="alert" *ngIf="status == 'failed'">
+		Error al actualizar el proyecto
+	</div>
+
+	<form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
+		<div class="row mb-3">
+			<div class="col-md-6">
+				<input type="text" name="name" #name="ngModel" [(ngModel)]="project.name" class="form-control" placeholder="*Nombre del proyecto" required>
+				<span class="form-error" *ngIf="name.touched && !name.valid">
+					El nombre es obligatorio
+				</span>
+			</div>
+			<div class="col-md-6">
+				<input type="text" name="category" #category="ngModel" class="form-control" placeholder="*Categoria" [(ngModel)]="project.category" required>
+				<span class="form-error" *ngIf="category.touched && !category.valid">
+					La categoria es obligatoria
+				</span>
+			</div>
+		</div>
+
+		<div class="row mb-3">
+			<div class="col-md-6">
+				<input type="text" name="langs" #langs="ngModel" [(ngModel)]="project.langs" class="form-control" placeholder="*Lenguajes utilizados" required>
+				<span class="form-error" *ngIf="langs.touched && !langs.valid">
+					Los lenguajes son obligatorios
+				</span>
+			</div>
+			<div class="col-md-6">
+				<input type="number" name="year" #year="ngModel" [(ngModel)]="project.year" class="form-control" placeholder="*Año de lanzamiento" required>
+				<span class="form-error" *ngIf="year.touched && !year.valid">
+					El año de lanzamiento es obligatorio
+				</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 d-flex align-items-center">
+				<div class="form-group">
+					<label for="image">*Imagen del proyecto</label>
+					<input type="file" name="image" class="form-control-file" id="exampleFormControlFile1" placeholder="Subir imagen" (change)="fileChangeEvent($event)">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="card mb-2">
+					<div class="project-image">
+						<img class="card-img-top" src="{{url+'get-image/'+project.image}}" alt="Card image cap" *ngIf="project.image">
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+		<div class="form-group">
+			<label for="description">*Descripción</label>
+			<textarea class="form-control" name="description" #description="ngModel" id="description" [(ngModel)]="project.description" required rows="3"></textarea>
+			<span class="form-error" *ngIf="description.touched && !description.valid">
+				La descripcion es obligatoria
+			</span>
+		</div>
+
+		<div class="alert alert-danger" role="alert" *ngIf="status == 'failed'">
+			Error al actualizar el proyecto
+		</div>
+		<div class="alert alert-success" role="alert" *ngIf="status == 'success'">
+			El proyecto se ha actualizado correctamente, puedes <a [routerLink]="['/proyecto', save_project.name, save_project._id]">verlo aqui</a>
+		</div>
+
+		<button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="!projectForm.form.valid">Editar proyecto</button>
+	</form>
+
+</div>
+

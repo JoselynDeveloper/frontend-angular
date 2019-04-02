@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importar las fuentes custom */
+@font-face{
+	font-family: "yanone";
+	src: url("assets/fonts/yanone.ttf");
+}
+
+@font-face{
+	font-family: "finger";
+	src: url("assets/fonts/finger.ttf");
+}
+
+
+/* Generales */
+
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	font-family: "yanone", Arial, Helvetica;
+	font-size: 15px !important;
+	background: url("assets/img/pattern.png"); 
+	background-attachment: fixed;
+}
+
+.clearfix{
+	float: none;
+	clear: both;
+}

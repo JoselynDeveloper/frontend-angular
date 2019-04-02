@@ -1,0 +1,37 @@
+
+<header class="fixed-top">
+  <ul>
+    <li>
+      <a [routerLink]="['/sobre-mi']" [routerLinkActive]="['actived']">
+        Sobre mi
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/proyectos']" [routerLinkActive]="['actived']">
+        Proyectos
+      </a>
+    </li>
+    <li id="logo"><a [routerLink]="['/sobre-mi']">JPA</a></li>
+    <li>
+      <a [routerLink]="['/crear-proyecto']" [routerLinkActive]="['actived']">
+        Crear proyecto
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/contacto']" [routerLinkActive]="['actived']">
+        Contacto
+      </a>
+    </li>
+  </ul>
+</header>
+
+
+<section id="content">
+ <!-- Esto carga los componente de la ruta -->
+ <router-outlet></router-outlet> 
+</section>
+
+<footer>
+  Desarrollado por Joselyn Abreu &copy; 2019
+</footer>
+

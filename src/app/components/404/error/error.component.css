@@ -1,0 +1,8 @@
+
+.error{
+	display: flex !important;
+}
+
+.error img{
+	width: 100%;
+}
