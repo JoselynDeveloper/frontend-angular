@@ -69,6 +69,7 @@ input[type=number]:focus:invalid {
 }
 
 .project-image{
-	height: 300px;
+	height: auto;
+	max-height: 300px;
 	overflow: hidden;
 }

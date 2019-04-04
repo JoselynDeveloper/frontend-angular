@@ -19,9 +19,9 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 	providers: [ProjectService]
 })
 export class ProjectsHomeComponent implements OnInit {
-	private projects: Project;
+	public projects: Project;
 	public title: string;
-	private url: string;
+	public url: string;
 	public modalTitle: string;
 	public modalMessage: string;
 	public modalAcepto: string;

@@ -1,28 +1,37 @@
 
 <header class="fixed-top">
-  <ul>
-    <li>
-      <a [routerLink]="['/sobre-mi']" [routerLinkActive]="['actived']">
-        Sobre mi
-      </a>
-    </li>
-    <li>
-      <a [routerLink]="['/proyectos']" [routerLinkActive]="['actived']">
-        Proyectos
-      </a>
-    </li>
-    <li id="logo"><a [routerLink]="['/sobre-mi']">JPA</a></li>
-    <li>
-      <a [routerLink]="['/crear-proyecto']" [routerLinkActive]="['actived']">
-        Crear proyecto
-      </a>
-    </li>
-    <li>
-      <a [routerLink]="['/contacto']" [routerLinkActive]="['actived']">
-        Contacto
-      </a>
-    </li>
-  </ul>
+  <nav class="navbar navbar-expand-lg navbar-dark p-0"> 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse m-0" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item d-block d-lg-inline-flex">
+          <a [routerLink]="['/sobre-mi']" [routerLinkActive]="['actived']" class="nav-link">
+            Sobre mi<span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item d-block d-lg-inline-flex">
+          <a [routerLink]="['/proyectos']" [routerLinkActive]="['actived']" class="nav-link">
+            Proyectos
+          </a>
+        </li>
+
+        <li id="logo" class="nav-item d-none d-sm-block d-lg-inline-flex"><a [routerLink]="['/sobre-mi']">JPA</a></li>
+
+        <li class="nav-item d-block d-lg-inline-flex">
+          <a [routerLink]="['/crear-proyecto']" [routerLinkActive]="['actived']" class="nav-link">
+            Crear proyecto
+          </a>
+        </li>
+        <li class="nav-item d-block d-lg-inline-flex">
+          <a [routerLink]="['/contacto']" [routerLinkActive]="['actived']" class="nav-link">
+            Contacto
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </header>
 
 
@@ -34,4 +43,3 @@
 <footer>
   Desarrollado por Joselyn Abreu &copy; 2019
 </footer>
-

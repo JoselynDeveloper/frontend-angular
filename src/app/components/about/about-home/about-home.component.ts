@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about-home.component.css']
 })
 export class AboutHomeComponent implements OnInit {
-  private title: string;
-  private subtitle: string;
-  private email: string;
+  public title: string;
+  public subtitle: string;
+  public email: string;
 
   constructor() {
   	this.title = "Joselyn Abreu";
